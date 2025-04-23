@@ -21,13 +21,7 @@ const input = ref('');
 
 const { completion, complete, isLoading } = useCompletion({
     api: '/api/streamObject',
-    schema: z.object({
-        name: z.string(),
-        funFact: z.string(),
-        country: z.string(),
-        population: z.number(),
-    }),
-    streamProtocol: 'object',
+    streamProtocol: 'text',
 });
 
 const handleComplete = async () => {
