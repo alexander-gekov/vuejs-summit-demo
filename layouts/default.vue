@@ -19,6 +19,7 @@ const links = [
     { to: '/generateObject', text: 'Generate Object' },
     { to: '/streamObject', text: 'Stream Object' },
     { to: '/toolCalling', text: 'Tool Calling' },
+    { to: '/', text: 'Chatbot' },
 ];
 </script>
 
