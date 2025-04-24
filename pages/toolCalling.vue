@@ -11,13 +11,13 @@
             class="mb-4"
         >
             <strong>{{ m.role === 'user' ? 'User: ' : 'AI: ' }}</strong>
-            <div v-for="part in m.parts" :key="part.id">
+            <div v-for="(part, index) in m.parts" :key="index">
                 <div v-if="part.type === 'text'">{{ part.text }}</div>
                 <div v-else-if="part.type === 'tool-invocation'">
                     <pre class="text-xs bg-gray-200">
 calling tool: {{ part.toolInvocation.toolName }}</pre
                     >
-                    <div>
+                    <div v-if="part.toolInvocation.state === 'result'">
                         {{ part.toolInvocation.result }}
                     </div>
                 </div>
@@ -28,9 +28,8 @@ calling tool: {{ part.toolInvocation.toolName }}</pre
 
 <script lang="ts" setup>
 import { useChat } from '@ai-sdk/vue';
-import { openai } from '@ai-sdk/openai';
 
-const { messages, input, handleSubmit, addToolResult } = useChat({
+const { messages, input, handleSubmit } = useChat({
     api: '/api/tools',
 });
 </script>

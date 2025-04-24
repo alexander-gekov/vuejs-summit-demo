@@ -11,7 +11,6 @@ export default defineLazyEventHandler(async () => {
 
         const result = streamText({
             model: openai('gpt-4o'),
-            system: 'You are a helpful assistant.',
             messages,
             tools: {
                 joke: tool({

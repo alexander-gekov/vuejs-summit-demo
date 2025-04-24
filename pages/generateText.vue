@@ -22,7 +22,7 @@ const generateText = async () => {
             prompt: prompt.value,
         },
     });
-    text.value = response;
+    text.value = response.text;
     loading.value = false;
 };
 </script>
